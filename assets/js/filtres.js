@@ -100,33 +100,14 @@ function deleteTags(e){
 // -------
 // Fonction qui va lancer le filtre principal et les tags
 function search(){
-  let results = principalFilterBis();
+  let results = principalFilterNativeLoop();
   if (divsTag.length > 0)
     results = filteredRecipesByTag(results);
     displayRecipes(results);
 };
 
-// // Filtre principal
-// function principalFilter(){
-//   // Récupérer la saisie de l'utilisateur
-//   const wordSearched = document.getElementById('recherche_principale-input').value.toLowerCase();
-//   let filteredRecipes = recipes;
-
-//     if(wordSearched.length > 2){
-//       filteredRecipes = recipes.filter(recette => {
-//         let titleDescritionIngredients = recette.name + recette.description + recette.ingredients.toString();
-//         if(titleDescritionIngredients.toLowerCase().includes(wordSearched)){
-//           return recette
-//         };
-//       });
-//   };
-//   return filteredRecipes;
-// };
-
-// ------------------------------ TEST ---------------------------------------------
-
-// Filtre principal
-function principalFilterBis(){
+// Filtre principal ------------- NATIVE LOOP ---------------
+function principalFilterNativeLoop(){
   // Récupérer la saisie de l'utilisateur
   let array = [];
   const wordSearched = document.getElementById('recherche_principale-input').value.toLowerCase();
@@ -155,9 +136,6 @@ function principalFilterBis(){
   // console.log(array);
   return array;
 };
-// principalFilterBis();
-
-// ------------------------------ TEST ---------------------------------------------
 
 // Filtres tags
 function filteredRecipesByTag(datas) {
